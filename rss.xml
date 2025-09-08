@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="http://jackson.jesus.nom.br/rss.xml" rel="self" type="application/rss+xml" />
+<title>Sitezinho</title>
+<link>https://jackson.jesus.nom.br</link>
+<description>Atualizações</description>
+<language>pt-br</language>
+<lastBuildDate>Tue, 02 Sep 2025 20:37:07 -0300</lastBuildDate>
+<image>
+    <url>https://jackson.jesus.nom.br/css/favicon.png</url>
+    <title>Sitezinho</title>
+    <link>https://jackson.jesus.nom.br</link>
+    <width>32</width>
+    <height>32</height>
+</image>
+
+<item>
+    <title>Início (retorno)</title>
+    <link>https://jackson.jesus.nom.br/index.html</link>
+    <description>Atualizei o sitezinho usando Vimwiki!</description>
+    <pubDate>Tue, 02 Sep 2025 15:30:00 -0300</pubDate>
+    <guid>https://jackson.jesus.nom.br/index.html</guid>
+</item>
+
+<item>
+    <title>Sobre (o termo) hacker...</title>
+    <link>https://jackson.jesus.nom.br/index.html</link>
+    <description>Republicação de texto antigo...</description>
+    <pubDate>Sat, 06 Sep 2025 10:32:05 -0300</pubDate>
+    <guid>https://jackson.jesus.nom.br/index.html</guid>
+</item>
+
+</channel>
+</rss>

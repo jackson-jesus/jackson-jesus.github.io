@@ -1,0 +1,298 @@
+/* ===========================
+   Variáveis padrão (tema claro)
+   =========================== */
+:root {
+  --font-main: Arial, sans-serif;
+
+  /* Paleta de 4 cores */
+  --color-bg: #FF9874;
+  --color-text: #222222;
+  --color-primary: #7695FF;
+  --color-accent: #FFD7C4;
+  /* superfícies (cards, article) */
+}
+
+/* ===========================
+   Tema ESCURO acessível (via atributo data-theme)
+   - Cores escolhidas para manter alto contraste (≥ 4.5:1)
+     sob protanopia, deuteranopia, tritanopia, acromatopsia
+     e perda de contraste.
+   =========================== */
+html[data-theme="dark"] {
+  --color-bg: #994C39;
+  /* fundo - laranja queimado */
+  --color-text: #FFFFFF;
+  /* texto branco para contraste */
+  --color-primary: #3A4C99;
+  /* azul profundo para links/botões */
+  --color-accent: #7F6B62;
+  /* superfícies em bege/cinza escuro */
+}
+
+/* ===========================
+   Base global
+   =========================== */
+html {
+  font-size: 100%;
+  /* facilita medidas relativas */
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================
+   Cabeçalho
+   =========================== */
+header {
+  background: var(--color-primary);
+  color: var(--color-text);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.3);
+}
+
+/* Navegação */
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+/* ===========================
+   Botão de tema (JS)
+   =========================== */
+.tema-switch {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.tema-switch button {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  border: none;
+  background: var(--color-primary);
+  color: var(--color-text);
+  transition: filter 0.2s ease-in-out;
+}
+
+.tema-switch button:hover {
+  filter: brightness(1.05);
+}
+
+/* ===========================
+   Conteúdo principal
+   =========================== */
+h1 {
+  text-align: center;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+main {
+  max-width: 70ch;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+article {
+  background: var(--color-accent);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+
+/* Melhora de sombra em tema escuro */
+html[data-theme="dark"] article {
+  box-shadow: 0 0.3rem 0.6rem rgba(255, 255, 255, 0.05);
+}
+
+/* Texto branco no modo escuro + links com a mesma cor dos parágrafos */
+html[data-theme="dark"] {
+  --color-text: #FFFFFF;
+}
+
+a,
+a:visited,
+nav a,
+footer a {
+  color: var(--color-text);
+}
+
+a:hover,
+nav a:hover,
+footer a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* ===========================
+   Estilos para imagens
+   =========================== */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+/* Melhora de sombra em tema escuro */
+html[data-theme="dark"] img {
+  box-shadow: 0 0.2rem 0.4rem rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
+   Estilos para tabelas com hover
+   =========================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: var(--color-accent);
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+
+/* Linhas ímpares - hoveráveis */
+tr:nth-child(odd) {
+  background: var(--color-accent);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Linhas pares - inicialmente ocultas */
+tr:nth-child(even) {
+  background: var(--color-primary);
+  color: var(--color-text);
+  display: none;
+}
+
+/* Exibe linha par ao passar mouse na linha ímpar anterior */
+tr:nth-child(odd):hover+tr:nth-child(even) {
+  display: table-row;
+}
+
+/* Efeito visual no hover */
+tr:nth-child(odd):hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Células da tabela */
+td {
+  padding: 0.5rem;
+  vertical-align: top;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste para tema escuro */
+html[data-theme="dark"] td {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===========================
+   Rodapé
+   =========================== */
+footer {
+  background: var(--color-primary);
+  color: var(--color-text);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   Responsividade
+   =========================== */
+
+/* Celulares */
+@media (max-width: 40em) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  main {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 40.1em) and (max-width: 64em) {
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  nav a {
+    margin: 0 0.75rem;
+  }
+
+  main {
+    max-width: 85%;
+  }
+}
+
+/* Desktops */
+@media (min-width: 64.1em) {
+  header h1 {
+    font-size: 2.25rem;
+  }
+
+  main {
+    max-width: 70ch;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 40em) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  td {
+    padding: 0.3rem;
+  }
+}
