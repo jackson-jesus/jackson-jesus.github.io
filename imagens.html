@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagens</title>
+  <style>
+    /* ===========================
+       Variáveis padrão (tema claro)
+       =========================== */
+    :root {
+      --font-main: Arial, sans-serif;
+      --color-bg: #FF9874;
+      --color-text: #222222;
+      --color-primary: #7695FF;
+      --color-accent: #FFD7C4;
+    }
+
+    /* ===========================
+       Tema ESCURO acessível
+       =========================== */
+    html[data-theme="dark"] {
+      --color-bg: #994C39;
+      --color-text: #FFFFFF;
+      --color-primary: #3A4C99;
+      --color-accent: #7F6B62;
+    }
+
+    /* ===========================
+       Base global
+       =========================== */
+    html {
+      font-size: 100%;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--color-bg);
+      color: var(--color-text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===========================
+       Cabeçalho
+       =========================== */
+    header {
+      background: var(--color-primary);
+      color: var(--color-text);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+      text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navegação */
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: var(--color-text);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ===========================
+       Botão de tema
+       =========================== */
+    .tema-switch {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .tema-switch button {
+      cursor: pointer;
+      font-weight: bold;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.4rem;
+      border: none;
+      background: var(--color-primary);
+      color: var(--color-text);
+      transition: filter 0.2s ease-in-out;
+    }
+
+    .tema-switch button:hover {
+      filter: brightness(1.05);
+    }
+
+    /* ===========================
+       Conteúdo principal
+       =========================== */
+    main {
+      max-width: 90%;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    /* ===========================
+       Galeria de Imagens
+       =========================== */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .galeria-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .galeria-item:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    }
+
+    html[data-theme="dark"] .galeria-item {
+      box-shadow: 0 0.3rem 0.6rem rgba(255, 255, 255, 0.1);
+    }
+
+    html[data-theme="dark"] .galeria-item:hover {
+      box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      transition: transform 0.3s ease;
+    }
+
+    .galeria-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .galeria-descricao {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .galeria-item:hover .galeria-descricao {
+      transform: translateY(0);
+    }
+
+    .galeria-descricao h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.5);
+    }
+
+    .galeria-descricao p {
+      margin: 0;
+      font-size: 0.9rem;
+      text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.5);
+    }
+
+    /* ===========================
+       Rodapé
+       =========================== */
+    footer {
+      background: var(--color-primary);
+      color: var(--color-text);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===========================
+       Responsividade
+       =========================== */
+
+    /* Celulares */
+    @media (max-width: 40em) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      main {
+        margin: 1rem;
+        padding: 0.5rem;
+      }
+
+      .galeria {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .galeria-item img {
+        height: 250px;
+      }
+    }
+
+    /* Tablets */
+    @media (min-width: 40.1em) and (max-width: 64em) {
+      header h1 {
+        font-size: 1.75rem;
+      }
+
+      nav a {
+        margin: 0 0.75rem;
+      }
+
+      .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
+    /* Desktops */
+    @media (min-width: 64.1em) {
+      header h1 {
+        font-size: 2.25rem;
+      }
+
+      .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Imagens</h1>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <div class="tema-switch">
+    <button id="btnTema">🌙 Alternar Tema</button>
+  </div>
+
+  <main>
+    <h2 style="text-align: center;">Explore Nossa Coleção</h2>
+    
+    <div class="galeria" id="galeria">
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Montanhas">
+        <div class="galeria-descricao">
+          <h3>Montanhas Majestosas</h3>
+          <p>Paisagem deslumbrante ao amanhecer</p>
+        </div>
+      </div>
+
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop" alt="Praia">
+        <div class="galeria-descricao">
+          <h3>Praia Paradisíaca</h3>
+          <p>Águas cristalinas e areia branca</p>
+        </div>
+      </div>
+
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=600&h=400&fit=crop" alt="Floresta">
+        <div class="galeria-descricao">
+          <h3>Floresta Encantada</h3>
+          <p>Natureza verde e exuberante</p>
+        </div>
+      </div>
+
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&h=400&fit=crop" alt="Deserto">
+        <div class="galeria-descricao">
+          <h3>Deserto Dourado</h3>
+          <p>Dunas infinitas sob o céu azul</p>
+        </div>
+      </div>
+
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=400&fit=crop" alt="Lago">
+        <div class="galeria-descricao">
+          <h3>Lago Sereno</h3>
+          <p>Reflexos perfeitos na água calma</p>
+        </div>
+      </div>
+
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=600&h=400&fit=crop" alt="Cachoeira">
+        <div class="galeria-descricao">
+          <h3>Cachoeira Imponente</h3>
+          <p>Força e beleza da natureza</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Galeria de Imagens. Todos os direitos reservados.</p>
+    <p><a href="#privacidade">Política de Privacidade</a> | <a href="#termos">Termos de Uso</a></p>
+  </footer>
+
+  <script>
+    const btnTema = document.getElementById('btnTema');
+    const html = document.documentElement;
+
+    const temaAtual = localStorage.getItem('tema') || 'light';
+    html.setAttribute('data-theme', temaAtual);
+    atualizarBotao(temaAtual);
+
+    btnTema.addEventListener('click', () => {
+      const novoTema = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', novoTema);
+      localStorage.setItem('tema', novoTema);
+      atualizarBotao(novoTema);
+    });
+
+    function atualizarBotao(tema) {
+      btnTema.textContent = tema === 'dark' ? '☀️ Tema Claro' : '🌙 Tema Escuro';
+    }
+  </script>
+</body>
+</html>
