@@ -25,19 +25,26 @@
 
 <item>
     <title>Sobre (o termo) hacker...</title>
-    <link>https://jackson.jesus.nom.br/index.html</link>
+    <link>https://antigo.jackson.jesus.nom.br/textos/hacker.html</link>
     <description>Republicação de texto antigo...</description>
     <pubDate>Sat, 06 Sep 2025 10:32:05 -0300</pubDate>
-    <guid>https://jackson.jesus.nom.br/index.html</guid>
+    <guid>https://antigo.jackson.jesus.nom.br/textos/hacker.html</guid>
 </item>
 
 <item>
     <title>Sobre o dia das professoras...</title>
-    <link>https://jackson.jesus.nom.br/professores.html</link>
+    <link>https://jackson.jesus.nom.br/textos/professores.html</link>
     <description>Republicação de texto antigo...</description>
     <pubDate>Wed, 15 Oct 2025 08:44:28 -0300</pubDate>
-    <guid>https://jackson.jesus.nom.br/professores.html</guid>
+    <guid>https://jackson.jesus.nom.br/textos/professores.html</guid>
 </item>
 
+<item>
+    <title>Sobre (a importância d) o dia da consciência negra...</title>
+    <link>https://jackson.jesus.nom.br/textos/consciencia-negra.html</link>
+    <description>Revisão de texto antigo...</description>
+    <pubDate>Thu, 20 Nov 2025 20:25:32 -0300</pubDate>
+    <guid>https://jackson.jesus.nom.br/textos/consciencia-negra.html</guid>
+</item>
 </channel>
 </rss>
